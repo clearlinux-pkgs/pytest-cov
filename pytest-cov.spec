@@ -4,14 +4,15 @@
 #
 Name     : pytest-cov
 Version  : 2.5.1
-Release  : 26
+Release  : 27
 URL      : http://pypi.debian.net/pytest-cov/pytest-cov-2.5.1.tar.gz
 Source0  : http://pypi.debian.net/pytest-cov/pytest-cov-2.5.1.tar.gz
 Summary  : Pytest plugin for measuring coverage.
 Group    : Development/Tools
 License  : MIT
+Requires: pytest-cov-legacypython
+Requires: pytest-cov-python3
 Requires: pytest-cov-python
-Requires: Sphinx
 Requires: coverage
 Requires: pytest
 BuildRequires : Sphinx
@@ -30,26 +31,35 @@ BuildRequires : tox
 BuildRequires : virtualenv
 
 %description
-========
 Overview
-========
-.. start-badges
-.. list-table::
-:stub-columns: 1
-* - docs
-- |docs|
-* - tests
-- | |travis| |appveyor| |requires|
-* - package
-- | |version| |wheel| |supported-versions| |supported-implementations|
-| |commits-since|
+        ========
+        
+        .. start-badges
+
+%package legacypython
+Summary: legacypython components for the pytest-cov package.
+Group: Default
+
+%description legacypython
+legacypython components for the pytest-cov package.
+
 
 %package python
 Summary: python components for the pytest-cov package.
 Group: Default
+Requires: pytest-cov-legacypython
+Requires: pytest-cov-python3
 
 %description python
 python components for the pytest-cov package.
+
+
+%package python3
+Summary: python3 components for the pytest-cov package.
+Group: Default
+
+%description python3
+python3 components for the pytest-cov package.
 
 
 %prep
@@ -60,12 +70,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1494607660
+export SOURCE_DATE_EPOCH=1506868468
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1494607660
+export SOURCE_DATE_EPOCH=1506868468
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -76,7 +86,13 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
-%files python
+%files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files python
+%defattr(-,root,root,-)
+
+%files python3
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
