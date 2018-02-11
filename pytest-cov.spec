@@ -4,13 +4,12 @@
 #
 Name     : pytest-cov
 Version  : 2.5.1
-Release  : 31
+Release  : 32
 URL      : http://pypi.debian.net/pytest-cov/pytest-cov-2.5.1.tar.gz
 Source0  : http://pypi.debian.net/pytest-cov/pytest-cov-2.5.1.tar.gz
 Summary  : Pytest plugin for measuring coverage.
 Group    : Development/Tools
 License  : MIT
-Requires: pytest-cov-legacypython
 Requires: pytest-cov-python3
 Requires: pytest-cov-python
 Requires: coverage
@@ -36,19 +35,9 @@ Overview
         
         .. start-badges
 
-%package legacypython
-Summary: legacypython components for the pytest-cov package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the pytest-cov package.
-
-
 %package python
 Summary: python components for the pytest-cov package.
 Group: Default
-Requires: pytest-cov-legacypython
 Requires: pytest-cov-python3
 
 %description python
@@ -72,25 +61,18 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1507169936
-python2 setup.py build -b py2
+export SOURCE_DATE_EPOCH=1518380143
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1507169936
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files python
 %defattr(-,root,root,-)
