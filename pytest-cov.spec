@@ -4,7 +4,7 @@
 #
 Name     : pytest-cov
 Version  : 2.5.1
-Release  : 36
+Release  : 37
 URL      : http://pypi.debian.net/pytest-cov/pytest-cov-2.5.1.tar.gz
 Source0  : http://pypi.debian.net/pytest-cov/pytest-cov-2.5.1.tar.gz
 Summary  : Pytest plugin for measuring coverage.
