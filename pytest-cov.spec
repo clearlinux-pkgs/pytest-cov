@@ -4,7 +4,7 @@
 #
 Name     : pytest-cov
 Version  : 2.8.1
-Release  : 48
+Release  : 49
 URL      : https://files.pythonhosted.org/packages/13/8a/51f54b43a043c799bceca846594b9a310823a3e52df5ec27109cccba90f4/pytest-cov-2.8.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/13/8a/51f54b43a043c799bceca846594b9a310823a3e52df5ec27109cccba90f4/pytest-cov-2.8.1.tar.gz
 Summary  : Pytest plugin for measuring coverage.
