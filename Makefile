@@ -1,5 +1,5 @@
 PKG_NAME := pytest-cov
-URL = https://files.pythonhosted.org/packages/48/4f/07cb54230a88dd3d2af3d9a14a3fcf6d6f1fb94559345c027bcefae93501/pytest-cov-2.12.0.tar.gz
+URL = https://files.pythonhosted.org/packages/63/3a/747e953051fd6eb5fb297907a825aad43d94c556d3b9938fc21f3172879f/pytest-cov-2.12.1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
